@@ -76,3 +76,6 @@ https://www.youtube.com/watch?v=B5j3uNBH8X4
    in a partition.
 7. A Partition has multiple segments.
 8. every record/messages consists of header, key, value, and timestamp
+
+
+We can configure listeners/consumers to listen to multiple topics, partitions, and a specific initial offset.

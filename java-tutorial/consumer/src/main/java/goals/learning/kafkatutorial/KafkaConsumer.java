@@ -10,14 +10,14 @@ public class KafkaConsumer {
   private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
 
   @KafkaListener(topics = "kafka-topic-smartcar", containerFactory = "kafkaListenerContainerFactory")
-  void listener(MyMessageEvent event) {
+  void listenerSmartcar(MyMessageEvent event) {
     log.info("Smartcar message received at: {} for the car : {} ", event.getTimestamp()
                                   .toString(), event.getVal());
   }
 
 
   @KafkaListener(topics = "kafka-topic-manual", containerFactory = "kafkaListenerContainerFactory")
-  void listener(MyMessageEvent event) {
+  void listenerManual(MyMessageEvent event) {
     log.info("Manual message received at: {} for the car : {} ", event.getTimestamp()
             .toString(), event.getVal());
   }
