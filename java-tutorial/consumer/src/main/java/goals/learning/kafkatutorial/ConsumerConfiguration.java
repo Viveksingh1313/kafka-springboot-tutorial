@@ -42,8 +42,8 @@ public class ConsumerConfiguration {
   }
 
   @Bean
-  public NewTopic timestampTopic() {
-    return TopicBuilder.name("kafka-topic")
+  public NewTopic timestampTopicSmartCar() {
+    return TopicBuilder.name("kafka-topic-smartcar")
                        .build();
   }
 

@@ -20,8 +20,11 @@ public class ProducerConfiguration {
   @Bean
   public ProducerFactory<String, MyMessageEvent> producerFactory() {
     var props = new HashMap<String, Object>();
+    // where your kafka runs
     props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+    // serializing key
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+    // serializing value
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
     props.put(ConsumerConfig.GROUP_ID_CONFIG, "kafkaTutorial");
     return new DefaultKafkaProducerFactory<>(props);
@@ -33,8 +36,8 @@ public class ProducerConfiguration {
   }
 
   @Bean
-  public NewTopic timestampTopic() {
-    return TopicBuilder.name("kafka-topic")
+  public NewTopic timestampTopicSmartcar() {
+    return TopicBuilder.name("kafka-topic-smartcar")
                        .build();
   }
 
