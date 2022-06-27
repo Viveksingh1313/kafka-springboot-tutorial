@@ -11,8 +11,15 @@ public class KafkaConsumer {
 
   @KafkaListener(topics = "kafka-topic-smartcar", containerFactory = "kafkaListenerContainerFactory")
   void listener(MyMessageEvent event) {
-    log.info("Received message at: {} for the car : {} ", event.getTimestamp()
+    log.info("Smartcar message received at: {} for the car : {} ", event.getTimestamp()
                                   .toString(), event.getVal());
+  }
+
+
+  @KafkaListener(topics = "kafka-topic-manual", containerFactory = "kafkaListenerContainerFactory")
+  void listener(MyMessageEvent event) {
+    log.info("Manual message received at: {} for the car : {} ", event.getTimestamp()
+            .toString(), event.getVal());
   }
 
 }

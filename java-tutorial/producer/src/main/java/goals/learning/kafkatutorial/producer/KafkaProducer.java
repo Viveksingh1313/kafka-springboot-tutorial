@@ -22,4 +22,13 @@ public class KafkaProducer {
     kafkaTemplate.send("kafka-topic-smartcar", event);
     log.info("Sent smartcar value :{} at time : {}", event.getVal(), event.getTimestamp().toString());
   }
+
+
+  @Scheduled(fixedRate = 5000)
+  public void reportCurrentTimeAndSmartcar() {
+    var event = new MyMessageEvent(ZonedDateTime.now(), "Smartcar Azuga");
+    kafkaTemplate.send("kafka-topic-manual", event);
+    log.info("Sent manual value :{} at time : {}", event.getVal(), event.getTimestamp().toString());
+  }
+
 }

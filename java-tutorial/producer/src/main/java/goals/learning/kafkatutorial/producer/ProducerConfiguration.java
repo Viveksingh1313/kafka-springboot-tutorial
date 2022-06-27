@@ -41,4 +41,11 @@ public class ProducerConfiguration {
                        .build();
   }
 
+
+  @Bean
+  public NewTopic timestampTopicManual() {
+    return TopicBuilder.name("kafka-topic-manual")
+            .build();
+  }
+
 }
