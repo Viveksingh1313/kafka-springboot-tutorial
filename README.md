@@ -1,4 +1,4 @@
-[//]: # (How to run the application ?)
+# (How to run the application ?)
 
 docker-compose up -d
 cd producer
@@ -11,7 +11,7 @@ mvn spring-boot:run
 
 
 
-[//]: # (Use case of application ?)
+# (Use case of application ?)
 Producer service sends messages to the message broker. Consumer service reads those messages. 
 This is an event driven architecture where we mitigate the dependencies b/w applications 
 (also termed loose coupling). 
@@ -22,10 +22,10 @@ So we use a message broker which acts  as middleware to store those messages in 
 make the system loosely coupled.
 
 
-[//]: # (Technology used :)
+# (Technology used :)
 Java 11, Spring Boot, Docker, Docker Compose, Kafka, ZooKeeper
 
-[//]: # (Docker ? Why use docker ?)
+# (Docker ? Why use docker ?)
 
 Docker is a widely used container tool which makes it easier to use applications across 
 different host machines. It comes with all dependencies so that a user doesn't spend time doing the 
@@ -39,12 +39,12 @@ We just execute a command and the setup/run is done for both zookeeper and kafka
 [//]: # (Check docker-compose.yml file for more info ;)
 
 
-[//]: # (what is docker compose?)
+# what is docker compose?
 Microservices paradigm is considered to be the best practice over a monolith for applications we use 
 today. Docker compose is used to maintain multiple containers/services.
 
 
-[//]: # (Why use Kafka over other message brokers ?)
+# (Why use Kafka over other message brokers ?)
 Kafka is distributed, highly scalable, supports high throughput, supports pub sub model. Kafka can act as a message 
 broker and stream processor as well. Stream processing is one of the strengths of a Kafka service.
    (RabbitMQ will also start handling streams of data soon. )
@@ -54,17 +54,17 @@ Kafka can handle more messages and retains messages up to a retention time. So e
 it can be re-read later if needed. ActiveMQ and RabbitMQ are message broker services, so once messages are read 
 they are deleted from brokers.
 
-[//]: # (Kafka with Zookeper? Reason?)
+# (Kafka with Zookeper? Reason?)
 Zookeeper is used in distributed systems as a config manager, naming registry and service synchronization. 
 So zookeeper is used to maintain all the nodes in a Kafka cluster. Although for the use case we have, 
 we don't need zookeeper but Kafka production deployments needs Zookeeper as a mandatory dependency 
 irrespective of the number of nodes/clusters you have.
 
 
-Understand Kafka basic terminologies :
+# Understand Kafka basic terminologies :
 https://www.youtube.com/watch?v=B5j3uNBH8X4
 
-Key pointers on Kafka to get started : 
+# Key pointers on Kafka to get started : 
 
 1. A Broker is a Kafka server that runs in a Kafka Cluster. 
 2. Multiple Kafka Brokers form a Kafka cluster.
