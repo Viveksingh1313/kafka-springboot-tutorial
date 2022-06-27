@@ -35,6 +35,12 @@ public class ProducerConfiguration {
     return new KafkaTemplate<>(producerFactory());
   }
 
+
+  // creating topics
+  // remember KafkaAdmin is responsible for creating these topics
+  // we don't do any configuration. We just provide names for our topics and springboot
+  // automatically configures it.
+  // check this for more info https://reflectoring.io/spring-boot-kafka/
   @Bean
   public NewTopic timestampTopicSmartcar() {
     return TopicBuilder.name("kafka-topic-smartcar")
