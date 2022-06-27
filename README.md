@@ -9,7 +9,11 @@ cd ..
 cd consumer
 mvn spring-boot:run
 
+Stops the Kafka and Zookeeper container
+docker-compose stop
 
+To delete a topic for reuse
+bin/kafka-topics.sh --zookeeper zookeeper:2181 --delete --topic topic-name
 
 # (Use case of application ?)
 Producer service sends messages to the message broker. Consumer service reads those messages. 
