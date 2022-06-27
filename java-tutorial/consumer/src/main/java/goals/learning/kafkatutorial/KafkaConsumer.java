@@ -9,17 +9,15 @@ import org.springframework.stereotype.Component;
 public class KafkaConsumer {
   private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
 
-  @KafkaListener(topics = "kafka-topic-smartcar", containerFactory = "kafkaListenerContainerFactory")
+  @KafkaListener(topics = "kafka-topic-smartcar-2", containerFactory = "kafkaListenerContainerFactory")
   void listenerSmartcar(MyMessageEvent event) {
-    log.info("Smartcar message received at: {} for the car : {} ", event.getTimestamp()
-                                  .toString(), event.getVal());
+    log.info("Smartcar message received at: {} for the car : {} Counter : {}", event.getTimestamp(), event.getVal(), event.getCounter());
   }
 
 
-  @KafkaListener(topics = "kafka-topic-manual", containerFactory = "kafkaListenerContainerFactory")
+  @KafkaListener(topics = "kafka-topic-manual-2", containerFactory = "kafkaListenerContainerFactory")
   void listenerManual(MyMessageEvent event) {
-    log.info("Manual message received at: {} for the car : {} ", event.getTimestamp()
-            .toString(), event.getVal());
+    log.info("Manual message received at: {} for the car : {} Counter : {}", event.getTimestamp(), event.getVal(), event.getCounter());
   }
 
 }

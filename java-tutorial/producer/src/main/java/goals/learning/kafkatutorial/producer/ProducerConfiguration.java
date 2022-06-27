@@ -26,7 +26,7 @@ public class ProducerConfiguration {
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
     // serializing value
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-    props.put(ConsumerConfig.GROUP_ID_CONFIG, "kafkaTutorial");
+    props.put(ConsumerConfig.GROUP_ID_CONFIG, "kafkaTutorial-1");
     return new DefaultKafkaProducerFactory<>(props);
   }
 
@@ -43,14 +43,14 @@ public class ProducerConfiguration {
   // check this for more info https://reflectoring.io/spring-boot-kafka/ush
   @Bean
   public NewTopic timestampTopicSmartcar() {
-    return TopicBuilder.name("kafka-topic-smartcar")
+    return TopicBuilder.name("kafka-topic-smartcar-2")
                        .build();
   }
 
 
   @Bean
   public NewTopic timestampTopicManual() {
-    return TopicBuilder.name("kafka-topic-manual")
+    return TopicBuilder.name("kafka-topic-manual-2")
             .build();
   }
 

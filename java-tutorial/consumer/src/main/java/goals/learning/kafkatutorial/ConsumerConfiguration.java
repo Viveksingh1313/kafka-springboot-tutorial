@@ -29,7 +29,7 @@ public class ConsumerConfiguration {
     props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
     props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-    props.put(ConsumerConfig.GROUP_ID_CONFIG, "kafkaTutorial");
+    props.put(ConsumerConfig.GROUP_ID_CONFIG, "kafkaTutorial-1");
 
     return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), timestampEventDeserializer);
   }
@@ -43,14 +43,14 @@ public class ConsumerConfiguration {
 
   @Bean
   public NewTopic timestampTopicSmartCar() {
-    return TopicBuilder.name("kafka-topic-smartcar")
+    return TopicBuilder.name("kafka-topic-smartcar-2")
                        .build();
   }
 
 
   @Bean
   public NewTopic timestampTopicManual() {
-    return TopicBuilder.name("kafka-topic-manual")
+    return TopicBuilder.name("kafka-topic-manual-2")
             .build();
   }
 

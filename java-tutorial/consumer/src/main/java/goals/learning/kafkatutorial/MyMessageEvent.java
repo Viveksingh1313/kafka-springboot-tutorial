@@ -8,6 +8,8 @@ public class MyMessageEvent {
 
   private String val;
 
+  private int counter;
+
   public MyMessageEvent() {}
 
   public ZonedDateTime getTimestamp() {
@@ -24,6 +26,14 @@ public class MyMessageEvent {
 
   public void setVal(String val) {
     this.val = val;
+  }
+
+  public int getCounter() {
+    return counter;
+  }
+
+  public void setCounter(int counter) {
+    this.counter = counter;
   }
 
 }

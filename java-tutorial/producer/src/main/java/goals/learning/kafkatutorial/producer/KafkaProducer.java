@@ -16,19 +16,21 @@ public class KafkaProducer {
   @Autowired
   private KafkaTemplate<String, MyMessageEvent> kafkaTemplate;
 
+  int i = 0 ,j = 0;
+
   @Scheduled(fixedRate = 10000)
   public void reportCurrentTimeAndSmartcar() {
-    var event = new MyMessageEvent(ZonedDateTime.now(), "Smartcar Azuga");
-    kafkaTemplate.send("kafka-topic-smartcar", event);
-    log.info("Sent smartcar value :{} at time : {}", event.getVal(), event.getTimestamp().toString());
+    var event = new MyMessageEvent(ZonedDateTime.now(), "Smartcar Azuga", i++);
+    kafkaTemplate.send("kafka-topic-smartcar-2", event);
+    log.info("Sent smartcar value :{} at time : {} Counter : {}", event.getVal(), event.getTimestamp().toString(), event.getCounter());
   }
 
 
   @Scheduled(fixedRate = 10000)
   public void reportCurrentTimeAndManual() {
-    var event = new MyMessageEvent(ZonedDateTime.now(), "Smartcar Azuga");
-    kafkaTemplate.send("kafka-topic-manual", event);
-    log.info("Sent manual value :{} at time : {}", event.getVal(), event.getTimestamp().toString());
+    var event = new MyMessageEvent(ZonedDateTime.now(), "Manual Azuga", j++);
+    kafkaTemplate.send("kafka-topic-manual-2", event);
+    log.info("Sent manual value :{} at time : {} Counter : {}", event.getVal(), event.getTimestamp().toString(), event.getCounter());
   }
 
 }
