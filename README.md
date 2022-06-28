@@ -80,6 +80,35 @@ https://www.youtube.com/watch?v=B5j3uNBH8X4
    in a partition.
 7. A Partition has multiple segments.
 8. every record/messages consists of header, key, value, and timestamp
+9. Topic has many partitions
+10. Topic can have many consumer groups 
+11. Only one consumer in a consumer group can be assigned to consume messages from a partition 
+12. A consumer offset is managed at the partition level per consumer group
 
 
 We can configure listeners/consumers to listen to multiple topics, partitions, and a specific initial offset.
+
+
+Can multiple consumers in the same consumer group read same messages from a partition ?
+No
+A topic can be consumed by many consumer groups and each consumer group will have many consumers. 
+A topic is divided into multiple partitions.
+https://www.hadoopinrealworld.com/can-multiple-kafka-consumers-read-the-same-message-from-a-partition/#:~:text=A%20consumer%20can%20be%20assigned%20to%20consume%20multiple%20partitions.&text=So%20the%20rule%20in%20Kafka,same%20message%20from%20a%20partition.
+
+
+kafka replication
+https://hevodata.com/learn/kafka-replication/#:~:text=In%20Kafka%20parlance%2C%20Kafka%20Replication,unavailable%20to%20serve%20the%20requests.
+https://medium.com/@_amanarora/replication-in-kafka-58b39e91b64e
+
+Kafka designates one of them as the “Leader” partition and all other partitions are followers or “in-sync” partitions.
+
+To maintain these clusters and the topics/partitions within, Kafka has a centralized service called the Zookeeper.
+
+In Kafka parlance, Kafka Replication means having multiple copies of the data,
+spread across multiple servers/brokers. 
+This helps in maintaining high availability in case one of the brokers goes down and is 
+unavailable to serve the requests.
+
+
+Interview Questions on Kafka from interviewbit
+https://www.interviewbit.com/kafka-interview-questions/
